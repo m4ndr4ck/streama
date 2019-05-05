@@ -4220,9 +4220,10 @@ body.mdx-active #mdx-control-view {
 
 ::cue {
   color: white;
-  font-weight: normal;
-  font-size: 30px;
-  line-height:1.2em;
+  background: transparent;
+  font-weight: 700;
+  font-size: 27pt;
+  text-shadow: 2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 
