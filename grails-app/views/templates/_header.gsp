@@ -38,7 +38,7 @@
 
       <li ng-if="isCurrentState('dash')">
         <div class="dash-search form-group has-feedback">
-          <input type="text" placeholder="Search.." class="form-control input-xs" ng-model="dashSearch"
+          <input type="text" placeholder="Buscar.." class="form-control input-xs" ng-model="dashSearch"
                  typeahead-append-to-body="true" uib-typeahead="(item.title || item.name) for item in searchMedia($viewValue)"
                  typeahead-on-select="selectFromSearch($item)" typeahead-template-url="/streama/typeahead--media.htm" typeahead-loading="baseData.loading"/>
           <span class="form-control-feedback ion-android-search" aria-hidden="true"></span>
@@ -61,7 +61,7 @@
           <div class="btn-group" uib-dropdown is-open="status.isopen" style="margin: 4px 0;">
             <button id="single-button" type="button" class="btn btn-primary btn-sm header-btn profile-select-dropdown"
                     uib-dropdown-toggle ng-disabled="disabled">
-              <div class="avatar-in-header" ng-style="{'background-color': '#'+($root.currentProfile.avatarColor || '0b74b2')}">
+              <div class="avatar-in-header" ng-style="{'background-color': '#'+($root.currentProfile.avatarColor || 'AB682B')}">
                 <img src="/assets/streama-profile-smiley.png" alt="">
               </div>
               <p>{{$root.currentProfile.profileName || $root.currentUser.fullName || $root.currentUser.username}}</p>
@@ -70,7 +70,7 @@
             <ul class="dropdown-menu dropdown-menu-right"
                 uib-dropdown-menu role="menu" aria-labelledby="single-button">
               <li role="menuitem" class="header-profile-item" ng-repeat="prof in $root.usersProfiles" ng-click="$root.setCurrentSubProfile(prof)">
-                <div class="avatar-in-header" ng-style="{'background-color': '#'+(prof.avatarColor || '0b74b2')}">
+                <div class="avatar-in-header" ng-style="{'background-color': '#'+(prof.avatarColor || 'AB682B')}">
                   <img src="/assets/streama-profile-smiley.png" alt="">
                 </div>
                 <a>{{prof.profileName}}</a>

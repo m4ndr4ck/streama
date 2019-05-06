@@ -251,7 +251,7 @@ class UserController {
 
   def loginTarget() {
     userActivityService.createActivityEntry(request, 'login')
-    redirect(uri: '/')
+    redirect(uri: '/z')
   }
 
 }

@@ -10,8 +10,13 @@ angular.module('streama.translations').config(function ($translateProvider) {
       PASSWORD: 'Password',
       FIRST_TIME_HINT: 'First time logging in? Try \'admin\' for both fields.',
       SUBMIT: 'Login',
-      REGISTER: 'Cadastrar',
       SESSION_EXPIRED: 'Your session expired since your last activity. Please login again.'
+    },
+    CADASTRO: {
+      EMAIL: "Email",
+      PASS: "Password",
+      REPEAT_PASS: "Repeat Password",
+      SUBMIT: "Signup"
     },
     DASHBOARD: {
       TITLE: 'Dashboard',

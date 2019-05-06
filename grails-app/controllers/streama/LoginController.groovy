@@ -59,7 +59,8 @@ class LoginController {
       redirect uri: conf.successHandler.defaultTargetUrl
     }
     else {
-      redirect action: 'auth', params: params
+      //redirect action: 'auth', params: params
+      redirect uri: '/cadastro'
     }
   }
 

@@ -6,12 +6,19 @@ angular.module('streama.translations').config(function ($translateProvider) {
 	$translateProvider.translations('pt', {
 		LOGIN: {
 			TITLE: 'Faça Login',
-			USERNAME: 'Usuário',
+			USERNAME: 'Email',
 			PASSWORD: 'Senha',
 			FIRST_TIME_HINT: 'Primeira vez fazendo login? Tente \'admin\' nos dois campos.',
 			SUBMIT: 'Entrar',
       SESSION_EXPIRED: 'Sua sessão expirou desde sua última atividade. Por favor faça login novamente.'
 		},
+    CADASTRO: {
+		  EMAIL: "Email",
+      PASS: "Senha",
+      REPEAT_PASS: "Repita a Senha",
+      SUBMIT: "Cadastrar"
+
+    },
 		DASHBOARD: {
 			TITLE: 'Painel',
 			RECOMMENDATIONS: 'Sugestões para você',

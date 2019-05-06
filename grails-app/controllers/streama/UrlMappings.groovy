@@ -31,7 +31,11 @@ class UrlMappings {
         "/api/v1/player/updateViewingStatus"(controller: 'player', action: 'updateViewingStatus')
 
 
-        "/"(view: '/index')
+        "/"(view: '/home')
+        "/login" controller: 'login', action: 'auth'
+        "/home"(view: '/home')
+        "/cadastro"(view: '/cadastro')
+        "/z"(view: '/index')
         "500"(view: '/error')
 //        "404"(view: '/notFound')
     }

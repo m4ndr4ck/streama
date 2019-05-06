@@ -233,12 +233,12 @@ label{
 }
 
 a{
-  color: $primary;
+  color: darken($primary, 15%);
   font-weight: 300;
   &:hover,
   &:focus,
   &:active{
-    color: $primary;
+    color: darken($primary, 15%);
   }
 }
 

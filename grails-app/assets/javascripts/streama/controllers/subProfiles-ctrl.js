@@ -5,11 +5,11 @@ angular.module('streama').controller('subProfilesCtrl',
 
     $scope.profile = {
       profileName: '',
-      profileLanguage: 'en',
+      profileLanguage: 'pt',
       isChild: false,
-      avatarColor: '0b74b2'
+      avatarColor: 'AB682B'
     };
-    $scope.standardColor = '0b74b2';
+    $scope.standardColor = 'AB682B';
     $scope.existingProfiles = [];
     $scope.loading = true;
     $scope.isManageProfiles = false;
@@ -17,7 +17,7 @@ angular.module('streama').controller('subProfilesCtrl',
     $scope.isCreateProfile = false;
     $scope.availableColors = [
       '0b74b2','ba1c56','099166','d1b805','c03da7',
-      '488f16','d36e10','4b4b4b','3a328b','b81f1f'
+      '488f16','AB682B','4b4b4b','3a328b','b81f1f'
     ];
 
     profileService.getUserProfiles().then(
@@ -44,9 +44,9 @@ angular.module('streama').controller('subProfilesCtrl',
       $scope.isCreateProfile = !$scope.isCreateProfile;
       $scope.profile = {
         profileName: '',
-        profileLanguage: 'en',
+        profileLanguage: 'pt',
         isChild: false,
-        avatarColor: '0b74b2'
+        avatarColor: 'AB682B'
       }
     };
 

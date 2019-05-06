@@ -46,7 +46,7 @@
     right: 7px;
     line-height: 1em;
     font-size: 31px;
-    color: $primary;
+    color: $danger;
     text-shadow: 1px 1px 1px rgb(0, 0, 0);
     opacity: 0;
     @include vendor-property('transition', 'opacity .2s');
@@ -96,7 +96,7 @@
     width: 1.8em;
     line-height: 1.8em;
     text-align: center;
-    color: $primary;
+    color: $danger;
     font-size: 33px;
     margin: -.9em;
     border-radius: 100%;
@@ -201,7 +201,7 @@
 
   .progress-inner{
     height: 7px;
-    background-color: $primary;
+    background-color: $secondary;
   }
 }
 

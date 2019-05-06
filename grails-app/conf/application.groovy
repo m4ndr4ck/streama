@@ -26,7 +26,9 @@ grails.plugin.springsecurity.successHandler.alwaysUseDefault = true
 
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 
-  [pattern:'/',  access :['IS_AUTHENTICATED_REMEMBERED']],
+  [pattern:'/',  access :['permitAll']],
+  [pattern:'/home',  access :['permitAll']],
+  [pattern:'/cadastro/**',  access :['permitAll']],
   [pattern:'/index',  access :['IS_AUTHENTICATED_REMEMBERED']],
   [pattern:'/index.gsp',  access :['IS_AUTHENTICATED_REMEMBERED']],
 
