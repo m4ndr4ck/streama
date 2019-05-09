@@ -24,70 +24,46 @@
   </script>
 </head>
 
-<body >
+<body ng-app="streama.auth" >
 <g:cssBackgroundSetting selector=".login-page" setting="${Settings.findByName('loginBackground').value}"></g:cssBackgroundSetting>
 <div class="page-container login-page">
-  <div class="modal-body">
-    <form class="form-horizontal">
+  <div id='login' class="ng-cloak">
+    <g:imgSetting class="auth-logo"  setting="${Settings.findByName('logo').value}" alt="${streama.Settings.findByName('title').value} Logo"></g:imgSetting>
+    <div class='inner'>
 
-      <div ng-class="{'has-error has-feedback': error, 'has-success has-feedback': validUser}">
-        <label class="control-label" ng-show="error">{{error}}</label>
-        <div class="form-group" >
-          <div class="col-sm-3">
-            <label class="control-label">Username</label>
-          </div>
-          <div class="col-sm-8">
-            <input type="text" class="form-control" ng-model="user.username" placeholder="Username" ng-model-options="{updateOn: 'blur'}" ng-change="checkAvailability(false, user.username)">
-            <span class="ion-close form-control-feedback" ng-show="error" aria-hidden="true"></span>
-            <span class="ion-checkmark form-control-feedback" ng-show="validUser" aria-hidden="true"></span>
-          </div>
-        </div>
-      </div>
+      <g:if test='${flash.message}'>
+        <div class='login_message'>${flash.message}</div>
+      </g:if>
 
-      <div class="form-group">
-        <div class="col-sm-8 col-sm-offset-3">
-          <label> <input type="checkbox" ng-model="user.enabled"/> &nbsp; Enabled (user can log in and view videos)</label>
-        </div>
-        <div class="col-sm-8 col-sm-offset-3">
-          <label> <input type="checkbox" ng-model="user.accountExpired"/> &nbsp; Expire account</label>
-        </div>
-      </div>
-      <!--<div class="form-group">-->
-      <!--<div class="col-sm-10 ">-->
-      <!--<label> <input type="checkbox" ng-model="user.accountExpired"/> &nbsp; Expire account</label>-->
-      <!--</div>-->
-      <!--</div>-->
-      <div class="form-group">
-        <div class="col-sm-3">
-          <label class="control-label">Roles</label>
-        </div>
-        <div class="col-sm-8">
-          <div class="form-control" style="height: auto;">
-            <div ng-repeat="role in roles">
-              <input type="checkbox" name="authorities[]" value="{{role.id}}" ng-checked="checkAuthorities(role.id)" ng-click="toggleAuthorities(role)"> {{role.displayName}}
-            </div>
+      <form  id='loginForm' class='cssform form-horizontal' ng-controller="authController"  ng-submit="signup()" autocomplete='off'>
+
+        <div class="form-group">
+          <div class="col-lg-12">
+            <input type="text" name="username" ng-model="email" class="form-control" placeholder="{{'CADASTRO.EMAIL' | translate}}">
           </div>
         </div>
-      </div>
 
-      <div class="form-group" >
-        <div class="col-sm-3">
-          <label class="control-label">{{'PROFIlE.LANGUAGE' | translate}}</label>
+        <div class="form-group">
+          <div class="col-lg-12">
+            <input type="password" name='password' ng-model="password" class="form-control" placeholder="{{'CADASTRO.PASS' | translate}}">
+          </div>
         </div>
-        <div class="col-sm-8">
-          <select class="form-control" ng-model="user.language" ng-options="lang as ('LANGUAGE_'+lang | translate) for lang in $root.availableLanguages"></select>
-        </div>
-      </div>
 
-    </form>
+        <div class="form-group">
+          <div class="col-lg-12">
+            <input type="password" name="password_confirm" ng-model="password_confirm" name='password_confirm' class="form-control" placeholder="{{'CADASTRO.REPEAT_PASS' | translate}}">
+          </div>
+        </div>
+        <span>
+          <g:if test="${streama.Settings.findBySettingsKey('First Time Login Info')?.value == 'true'}">
+            {{'LOGIN.FIRST_TIME_HINT' | translate}}
+          </g:if>
+          <input style="display: none;" type='checkbox' name='remember_me' id='remember_me' checked='checked'/>
+
+          <button type="submit" class="btn btn-primary pull-right">{{'CADASTRO.SUBMIT' | translate}} &nbsp; <i class="ion-chevron-right"></i></button></span>
+      </form>
+    </div>
   </div>
-
-  <div class="modal-footer">
-    <button  class="btn btn-success" ng-disabled="!valid && !user.id" ng-click="saveAndCreateUser(user)">Save & Create User</button>
-    <button class="btn btn-success" ng-click="createUser()">Save User</button>
-    <button type="button" class="btn btn-danger" ng-click="cancel()">Cancel</button>
-  </div>
-
   <div class="page-container-push"></div>
 </div>
 
@@ -97,7 +73,43 @@
 <asset:javascript src="vendor.js" />
 <asset:javascript src="/streama/streama.translations.js" />
 
+<script type='text/javascript'>
+  <!--
 
+
+
+  var headers = new Headers({
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  });
+
+  angular.module('streama.auth', ['streama.translations', 'LocalStorageModule']);
+
+  angular.module('streama.auth').controller('authController', function ($scope, $location, $window, $http) {
+    $scope.signup = function() {
+      $http({
+        method: 'POST',
+        url: '/cadastro/createUser',
+        headers: headers,
+        data: {
+          username: $scope.email,
+          password: $scope.password,
+          password_confirm: $scope.password_confirm,
+        }
+      }).then(function successCallback(response) {
+        console.log($scope.email);
+        console.log(response);
+        window.location.href = '/z#!/dash';
+        // console.log(response.data[0].key);
+        // console.log(response.data[0].tkTextValues[0].text);
+        // console.log(response.data.length)
+      }, function errorCallback(response) {
+        console.log('error');
+      });
+    }
+  })
+  // -->
+</script>
 
 
 <g:googleAnalytics/>

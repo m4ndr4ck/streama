@@ -71,7 +71,7 @@ angular.module('streama.translations').config(function ($translateProvider) {
     CREATE_PROFILE: 'Criar perfil',
 		ADMIN: 'Admin',
 		HELP: 'Ajuda',
-		HELP_FAQ: 'AJUDA / FAQ',
+		HELP_FAQ: 'Ajuda',
 		PROFILE_SETTINGS: 'Configurações do Perfil',
 		LOGOUT: 'Sair',
 		CHANGE_PASSWORD: 'Mudar Senha',

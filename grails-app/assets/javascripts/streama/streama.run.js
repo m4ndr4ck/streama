@@ -50,7 +50,7 @@ angular.module('streama')
 	};
 
 	$rootScope.loginUser = function () {
-	  $window.location.assign('/login/login');
+	  $window.location.assign('/login/auth');
   };
 
 
@@ -67,11 +67,12 @@ angular.module('streama')
       function(data) {
         var savedProfile = profileService.getCurrentProfile();
         if(!savedProfile){
-          $state.go('sub-profiles');
+          //$state.go('sub-profiles');
+          $state.go('dash');
         }
         $rootScope.usersProfiles = data.data;
         $rootScope.currentProfile = savedProfile || $rootScope.usersProfiles[0];
-        $translate.use(_.get($rootScope, 'currentProfile.profileLanguage') || _.get($rootScope, 'currentUser.language') || 'en')
+        $translate.use(_.get($rootScope, 'currentProfile.profileLanguage') || _.get($rootScope, 'currentUser.language') || 'pt')
       });
     $rootScope.setCurrentSubProfile = profileService.setCurrentProfile;
   }

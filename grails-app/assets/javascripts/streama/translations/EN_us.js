@@ -6,7 +6,7 @@ angular.module('streama.translations').config(function ($translateProvider) {
   $translateProvider.translations('en', {
     LOGIN: {
       TITLE: 'Please Login',
-      USERNAME: 'Username',
+      USERNAME: 'Email',
       PASSWORD: 'Password',
       FIRST_TIME_HINT: 'First time logging in? Try \'admin\' for both fields.',
       SUBMIT: 'Login',
@@ -71,7 +71,7 @@ angular.module('streama.translations').config(function ($translateProvider) {
     CREATE_PROFILE: 'Create profile',
     ADMIN: 'Admin',
     HELP: 'Help',
-    HELP_FAQ: 'HELP / FAQ',
+    HELP_FAQ: 'Help',
     PROFILE_SETTINGS: 'User Settings',
     LOGOUT: 'Logout',
     CHANGE_PASSWORD: 'Change Password',

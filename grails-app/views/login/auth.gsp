@@ -69,9 +69,6 @@
 
   <script type='text/javascript'>
     <!--
-    (function() {
-      document.forms['loginForm'].elements['username'].focus();
-    })();
 
     angular.module('streama.auth', ['streama.translations', 'LocalStorageModule']);
 

@@ -18,6 +18,10 @@
   <g:linkRelIconSetting setting="${Settings.findByName('favicon').value}"></g:linkRelIconSetting>
 
 
+  <script type="text/javascript">
+
+  </script>
+
 </head>
 
 <body class="ng-cloak" style="background-image: url('/assets/bg_index2.jpg')">
@@ -30,7 +34,7 @@
     <div>Assista ao melhor do terror sobrenatural, gore, psicológico, clássico e muito mais.</div>
 
     <div class="btn-group" style="margin: 0px 0;padding-top: 40px;">
-      <button class="btn btn-primary pull-right ng-binding" ng-click="loginUser()" style="
+      <button class="btn btn-primary pull-right ng-binding" onclick="location.href='/cadastro'" style="
       font-size: 25px;">
         ASSISTIR AGORA
       </button>

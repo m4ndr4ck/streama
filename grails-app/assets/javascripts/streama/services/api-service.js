@@ -47,7 +47,7 @@ angular.module('streama').factory('apiService', function ($http, $rootScope, con
         return $http.post('user/saveAndCreateUser.json', user);
       },
       createUser: function (user) {
-        return $http.post('cadastro/createUser.json', user);
+        return $http.post('cadastro/createUser.json', "Ok");
       },
 			saveAndInviteUser: function (user) {
 				return $http.post('user/saveAndInviteUser.json', user);

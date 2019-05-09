@@ -64,23 +64,13 @@
               <div class="avatar-in-header" ng-style="{'background-color': '#'+($root.currentProfile.avatarColor || 'AB682B')}">
                 <img src="/assets/streama-profile-smiley.png" alt="">
               </div>
-              <p>{{$root.currentProfile.profileName || $root.currentUser.fullName || $root.currentUser.username}}</p>
+              <p>{{$root.currentUser.username.split('@')[0]}}</p>
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right"
                 uib-dropdown-menu role="menu" aria-labelledby="single-button">
-              <li role="menuitem" class="header-profile-item" ng-repeat="prof in $root.usersProfiles" ng-click="$root.setCurrentSubProfile(prof)">
-                <div class="avatar-in-header" ng-style="{'background-color': '#'+(prof.avatarColor || 'AB682B')}">
-                  <img src="/assets/streama-profile-smiley.png" alt="">
-                </div>
-                <a>{{prof.profileName}}</a>
-              </li>
-              <li class="divider"></li>
-              <li role="menuitem">
-                <a ui-sref="sub-profiles">{{'MANAGE_SUB_PROFILES' | translate}}</a>
-              </li>
-              <li class="divider"></li>
               <li role="menuitem"><a ui-sref="help">{{'HELP_FAQ' | translate}}</a></li>
+              <li class="divider"></li>
               <li role="menuitem"><a ui-sref="userSettings">{{'PROFILE_SETTINGS' | translate}}</a></li>
               <li class="divider"></li>
               <li><g:link uri="/logoff">{{'LOGOUT' | translate}}</g:link></li>
